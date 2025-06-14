@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CakeCart - Toko Kue Premium</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon">🎂</div>
+                <div class="logo-text">CakeCart</div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="nav-menu">
+                <a href="#home">Beranda</a>
+                <a href="#about">Tentang</a>
+                <a href="#products">Produk</a>
+                <a href="#contact">Kontak</a>
+            </nav>
+
+            <!-- Right Section -->
+            <div class="header-right">
+                <div class="language-selector">
+                    <img src="https://flagsapi.com/ID/flat/24.png" alt="ID" class="flag-icon">
+                    <span>ID</span>
+                </div>
+                <button class="sign-in-btn">Sign in</button>
+                <button class="search-btn">🔍</button>
+                <button class="cart-btn" onclick="openCart()">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Selamat Datang di CakeCart</h1>
+            <p>Kue premium berkualitas tinggi untuk setiap momen spesial Anda</p>
+            <button class="cta-btn" onclick="scrollToProducts()">
+                Jelajahi Koleksi Kami
+            </button>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800&h=600&fit=crop&crop=center" alt="Delicious Cakes" class="hero-img">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Tentang CakeCart</h2>
+                    <p>CakeCart adalah toko kue premium yang berkomitmen menghadirkan kue berkualitas tinggi dengan cita rasa terbaik. Kami menggunakan bahan-bahan pilihan dan resep tradisional yang telah teruji untuk menciptakan kue yang tak terlupakan.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <div class="feature-icon">✨</div>
+                            <div class="feature-text">
+                                <h4>Kualitas Premium</h4>
+                                <p>Bahan-bahan pilihan berkualitas tinggi</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🚚</div>
+                            <div class="feature-text">
+                                <h4>Pengiriman Cepat</h4>
+                                <p>Delivery express ke seluruh Jakarta</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop&crop=center" alt="Our Bakery">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Koleksi Kue Premium Kami</h2>
+                <p>Pilihan kue terbaik untuk setiap momen spesial</p>
+            </div>
+            
+            <!-- Product Navigation -->
+            <div class="product-nav">
+                <button class="nav-btn prev-btn" onclick="slideProducts(-1)">‹</button>
+                <button class="nav-btn next-btn" onclick="slideProducts(1)">›</button>
+            </div>
+
+            <div class="products-container">
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-overlay" onclick="closeCart()"></div>
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Keranjang Belanja</h3>
+                <button class="close-btn" onclick="closeCart()">×</button>
+            </div>
+            <div class="cart-body">
+                <div id="cartItems"></div>
+                <div class="cart-total" id="cartTotal">
+                    <strong>Total: Rp 0</strong>
+                </div>
+            </div>
+            <div class="cart-footer">
+                <button class="checkout-btn" onclick="checkout()">
+                    Checkout Sekarang
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">🎂</div>
+                        <div class="logo-text">CakeCart</div>
+                    </div>
+                    <p>Platform belanja kue premium terpercaya dengan kualitas terjamin dan layanan terbaik.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">💬</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Kategori</h4>
+                    <ul>
+                        <li><a href="#">Kue Ulang Tahun</a></li>
+                        <li><a href="#">Kue Pernikahan</a></li>
+                        <li><a href="#">Cupcakes</a></li>
+                        <li><a href="#">Pastry & Dessert</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Layanan</h4>
+                    <ul>
+                        <li><a href="#">Pesan Custom</a></li>
+                        <li><a href="#">Delivery Express</a></li>
+                        <li><a href="#">Paket Catering</a></li>
+                        <li><a href="#">Gift Wrapping</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Kontak</h4>
+                    <div class="contact-info">
+                        <p>📞 +62 812-3456-7890</p>
+                        <p>📧 info@cakecart.com</p>
+                        <p>📍 Jakarta, Indonesia</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p> Copyright © 2025 CakeCart. All Rights Reserved.​​</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
